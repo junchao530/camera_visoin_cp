@@ -1,3 +1,7 @@
+/*
+Image CPP file which allows us to get the image and gather the individual pixels for transformations
+*/
+
 #include "image.h"
 #include  <stdlib.h>
 //#include "Functions.h"
@@ -5,16 +9,13 @@ using namespace std;
 
 
 Image::Image(){
-
     rows = 0;
     cols = 0;
     depth = 0;
     pixelVal = NULL;
     pixelVal3 = NULL;
-
-
 }
-
+//for allocating photo into memory and pointing to it
 Image::Image(int numRows, int numCols, int Ndepth){
     rows        = numRows;
     cols        = numCols;
@@ -40,6 +41,7 @@ Image::Image(int numRows, int numCols, int Ndepth){
     }
 }
 
+//Destrucutr for deallocating the memory
 Image:: ~Image(){
     for(int i = 0; i< rows; i++)
         delete pixelVal[i];
@@ -56,6 +58,7 @@ Image:: ~Image(){
     delete pixelVal3;
 }
 
+//Functions for getting or setting pixel values
 int Image::getPixelVal(int row, int col){
     return pixelVal[row][col];
 }
